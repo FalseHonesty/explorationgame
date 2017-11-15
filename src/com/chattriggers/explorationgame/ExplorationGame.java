@@ -1,11 +1,16 @@
 package com.chattriggers.explorationgame;
 
+import com.chattriggers.explorationgame.game.Player;
 import lombok.Getter;
 import processing.core.PApplet;
 
 public class ExplorationGame extends PApplet {
     @Getter
     private static ExplorationGame explorationGame;
+
+    //TODO: move to handler
+    @Getter
+    private static Player player;
 
     @Override
     public void settings() {
@@ -14,18 +19,26 @@ public class ExplorationGame extends PApplet {
 
     @Override
     public void draw() {
-        ellipse(mouseX, mouseY, 50, 50);
+        background(64);
+
+        //TODO: move to handler
+        player.draw();
     }
 
     @Override
     public void mousePressed() {
-        background(64);
+
     }
 
     public static void main(String[] args) {
         String[] processingArgs = {"ExplorationGame"};
-
         explorationGame = new ExplorationGame();
+
+        //TODO: move to handler
+        player = new Player(250, 250);
+
         PApplet.runSketch(processingArgs, explorationGame);
     }
+
+
 }
