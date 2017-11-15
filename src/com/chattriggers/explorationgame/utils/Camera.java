@@ -1,5 +1,6 @@
 package com.chattriggers.explorationgame.utils;
 
+import com.chattriggers.explorationgame.ExplorationGame;
 import lombok.Getter;
 
 public class Camera {
@@ -20,6 +21,15 @@ public class Camera {
     }
 
     public void update() {
+        this.x = easeOut(this.x, ExplorationGame.getPlayer().getX() - this.width / 2);
+        this.y = easeOut(this.y, ExplorationGame.getPlayer().getY() - this.height / 2);
+    }
 
+    private float easeOut(float from, float to) {
+        if (Math.floor(Math.abs(to - from) / 0.1) > 0) {
+            return from + (to - from) / 10;
+        } else {
+            return to;
+        }
     }
 }

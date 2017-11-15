@@ -4,6 +4,7 @@ import com.chattriggers.explorationgame.game.Player;
 import com.chattriggers.explorationgame.utils.Camera;
 import lombok.Getter;
 import processing.core.PApplet;
+import processing.event.KeyEvent;
 
 public class ExplorationGame extends PApplet {
     @Getter
@@ -26,12 +27,18 @@ public class ExplorationGame extends PApplet {
 
         //TODO: move to handler
         camera.update();
+        player.update();
         player.draw();
     }
 
     @Override
-    public void mousePressed() {
+    public void keyPressed(KeyEvent event) {
+        player.keyPressed(event);
+    }
 
+    @Override
+    public void keyReleased(KeyEvent event) {
+        player.keyReleased(event);
     }
 
     public static void main(String[] args) {
