@@ -3,10 +3,6 @@ package com.chattriggers.explorationgame;
 import lombok.Getter;
 import processing.core.PApplet;
 
-/**
- * Copyright 2017 (c) FalseHonesty
- */
-
 public class ExplorationGame extends PApplet {
     @Getter
     private static ExplorationGame explorationGame;
