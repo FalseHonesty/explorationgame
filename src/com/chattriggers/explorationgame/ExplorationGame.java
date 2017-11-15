@@ -1,6 +1,7 @@
 package com.chattriggers.explorationgame;
 
 import com.chattriggers.explorationgame.game.Player;
+import com.chattriggers.explorationgame.utils.Camera;
 import lombok.Getter;
 import processing.core.PApplet;
 
@@ -11,10 +12,12 @@ public class ExplorationGame extends PApplet {
     //TODO: move to handler
     @Getter
     private static Player player;
+    @Getter
+    private static Camera camera;
 
     @Override
     public void settings() {
-        size(500, 500);
+        size(camera.getWidth(), camera.getHeight());
     }
 
     @Override
@@ -22,6 +25,7 @@ public class ExplorationGame extends PApplet {
         background(64);
 
         //TODO: move to handler
+        camera.update();
         player.draw();
     }
 
@@ -35,6 +39,7 @@ public class ExplorationGame extends PApplet {
         explorationGame = new ExplorationGame();
 
         //TODO: move to handler
+        camera = new Camera(0, 0, 500, 500);
         player = new Player(250, 250);
 
         PApplet.runSketch(processingArgs, explorationGame);

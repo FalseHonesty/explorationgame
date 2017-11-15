@@ -8,11 +8,18 @@ public class Camera {
     @Getter
     private float y;
     @Getter
-    private float z;
+    private int width;
+    @Getter
+    private int height;
 
-    public Camera(float x, float y, float z) {
+    public Camera(float x, float y, int width, int height) {
         this.x = x;
         this.y = y;
-        this.z = z;
+        this.width = width;
+        this.height = height;
+    }
+
+    public void update() {
+
     }
 }
